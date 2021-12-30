@@ -54,25 +54,24 @@ public class ListHangHoa {
         Node node = this.head;
         if(this.head.getHangHoa().getiD() == id){
             this.head = this.head.getNext();
-            System.out.println("Đã Xoá Đối Tượng Đầu Tiên!!");
             return true;
         }
         else{
-            System.out.println("Đối Tượng Đã Được Xóa");
+            System.out.println("Doi Tuong Da Duoc Xoa");
         }
         while(node != null)
         {
             if(node.getNext().getHangHoa().getiD() == id){
                 node.setNext(node.getNext().getNext());
-                System.out.println("Xoá Thành Công!!!");
+                System.out.println("Xoa Thanh Cong");
                 return true;
             }
             else{
-                System.out.println("ID Không Tồn Tại!!");
+                System.out.println("Mat Hang Khong Co");
             }
             node = node.getNext();
         }
-        System.out.println("Xoá Không Thành Công!!!");
+        System.out.println("Xoa Khong Thanh Cong");
         return false;
     }
     public boolean SuaThongTin(int id){
@@ -92,21 +91,21 @@ public class ListHangHoa {
                 int l = sc.nextInt();
                 switch(l)
                 {
-                    case 1: loaiHh = "Thực Phẩm";
+                    case 1: loaiHh = "Thuc Pham";
                     break;
-                    case 2: loaiHh = "Sành Sứ";
+                    case 2: loaiHh = "Sanh Su";
                     break;
-                    case 3: loaiHh = "Điện Máy";
+                    case 3: loaiHh = "Dien May";
                     break;
-                    default: System.out.println("Loại Không Hợp Lệ!!!");
+                    default: System.out.println("Khong Hop Le");
                     break;
                 }
                 sc.nextLine();
                 try {
-                    System.out.println("Nhập Ngày Vào Kho [dd/MM/yyyy]");
+                    System.out.println("Nhap Ngay Vao Kho [dd/MM/yyyy]");
                     ngayNhap = df.parse(sc.nextLine());
                 } catch (Exception e) {
-                    System.out.println("Ngày Không Hợp Lệ!!!!");
+                    System.out.println("Ngay Khong Hop Le");
                 }
                 node.getHangHoa().setTenHangHoa(ten);
                 node.getHangHoa().setSoLuong(soLuong);
@@ -117,44 +116,54 @@ public class ListHangHoa {
             }
             node = node.getNext();
         }
-        System.out.println("Không Thể Sửa!!!");
+        System.out.println("Khong the sua");
         return false;
     }  
     public void SapXepTangDan(){
         Node node = this.head, node2 = null;
-        float temp;
-        while(node != null){
-            node2 = node.getNext();
-            while(node2 != null){
-                if(node.getHangHoa().getGiaHang() > node2.getHangHoa().getGiaHang()){
-                    temp = node.getHangHoa().giaHang;
-                    node.getHangHoa().giaHang = node2.getHangHoa().giaHang;
-                    node2.getHangHoa().giaHang = temp; 
+        HangHoa tempHangHoa;
+        if(head == null)
+        return;
+        else{
+            while(node != null){
+                node2 = node.next;
+                while(node2 != null){
+                    if(node.hangHoa.giaHang < node2.hangHoa.giaHang){
+                        tempHangHoa = node.hangHoa;
+                        node.hangHoa = node2.hangHoa;
+                        node2.hangHoa = tempHangHoa;
+                    }
+                    node2 = node2.next;
                 }
-                node2 = node2.getNext();
+                node = node.next;
             }
-            node = node.getNext();
         }
-        System.out.println("vui long xem lai"); 
+        HienThiHangHoa();
     }
+    
     public void SapXepGiamDan(){
         Node node = this.head, node2 = null;
-        float temp;
-        while(node != null){
-            node2 = node.getNext();
-            while(node2 != null){
-                if(node.getHangHoa().getGiaHang() < node2.getHangHoa().getGiaHang()){
-                    temp = node.getHangHoa().giaHang;
-                    node.getHangHoa().giaHang = node2.getHangHoa().giaHang;
-                    node2.getHangHoa().giaHang = temp; 
+        HangHoa tempHangHoa;
+        if(head == null)
+        return;
+        else{
+            while(node != null){
+                node2 = node.next;
+                while(node2 != null){
+                    if(node.hangHoa.giaHang > node2.hangHoa.giaHang){
+                        tempHangHoa = node.hangHoa;
+                        node.hangHoa = node2.hangHoa;
+                        node2.hangHoa = tempHangHoa;
+                    }
+                    node2 = node2.next;
                 }
-                node2 = node2.getNext();
+                node = node.next;
             }
-            node = node.getNext();
         }
-        System.out.println("Vui long xem lai");
-
+        HienThiHangHoa();
     }
+
+    
     public void ThongKe(){
         Node node = this.head;
         int sLtemp = 0;
@@ -184,9 +193,68 @@ public class ListHangHoa {
         }
         if(!isFound)
         {
-            System.out.println("Loại Muốn Tìm Không Hợp Lệ!");
+            System.out.println("Loai Muon Tim Khong Hop Le");
             return false;
         }
         return true;
+    }
+    public void DuLieuMacDinh(){
+        try {
+            String sDate1 = "01/02/1999";  
+            String sDate2 = "01/06/1997";  
+            String sDate3 = "08/05/1999";  
+            String sDate4 = "07/07/1997";  
+            String sDate5 = "21/12/2021";  
+            String sDate6 = "12/12/2012";  
+            SimpleDateFormat formatter1 = new SimpleDateFormat("dd/MM/yyyy");  
+            Date date1=formatter1.parse(sDate1);  
+            Date date2=formatter1.parse(sDate2);  
+            Date date3=formatter1.parse(sDate3);  
+            Date date4=formatter1.parse(sDate4);  
+            Date date5=formatter1.parse(sDate5);  
+            Date date6=formatter1.parse(sDate6); 
+            HangHoa hangHoa1 = new HangHoa(50, "binh", "Sanh Su", 200, date4);
+            HangHoa hangHoa2 = new HangHoa(10, "cai xanh", "Thuc Pham", 500, date5);
+            HangHoa hangHoa3 = new HangHoa(20, "quat", "Dien May", 500, date3);
+            HangHoa hangHoa4 = new HangHoa(56, "dien thoai", "Dien May", 10, date3);
+            HangHoa hangHoa5 = new HangHoa(45, "rau muong", "Thuc Pham", 5000, date2);
+            HangHoa hangHoa6 = new HangHoa(78, "bi dao", "Thuc Pham", 300, date5);
+            HangHoa hangHoa7 = new HangHoa(97, "may giat", "Dien May", 100, date4);
+            HangHoa hangHoa8 = new HangHoa(152, "my ly", "Thuc Pham", 600, date1);
+            HangHoa hangHoa9 = new HangHoa(150, "chen", "Sanh Su", 150, date3);
+            HangHoa hangHoa10 = new HangHoa(15500, "bep dien", "Dien May", 200, date5);
+            HangHoa hangHoa11 = new HangHoa(1005, "to", "Sanh Su", 105, date1);
+            HangHoa hangHoa12 = new HangHoa(1520, "ga", "Thuc Pham", 205, date3);
+            HangHoa hangHoa13 = new HangHoa(1780, "vit", "Thuc Pham", 705, date2);
+            HangHoa hangHoa14 = new HangHoa(1630, "lavabo", "Sanh Su", 905, date4);
+            HangHoa hangHoa15 = new HangHoa(1056, "thit heo", "Thuc Pham", 255, date1);
+            HangHoa hangHoa16 = new HangHoa(1589, "sua chua", "Thuc Pham", 605, date4);
+            HangHoa hangHoa17 = new HangHoa(1000, "laptop", "Dien May", 16555, date2);
+            HangHoa hangHoa18 = new HangHoa(1045, "muong", "Sanh Su", 755, date6);
+            HangHoa hangHoa19 = new HangHoa(1098, "may say", "Dien May", 200, date3);
+            HangHoa hangHoa20 = new HangHoa(1076, "may xay", "Dien May", 210000, date5);
+            ThemHangHoa(hangHoa1);
+            ThemHangHoa(hangHoa2);
+            ThemHangHoa(hangHoa3);
+            ThemHangHoa(hangHoa4);
+            ThemHangHoa(hangHoa5);
+            ThemHangHoa(hangHoa6);
+            ThemHangHoa(hangHoa7);
+            ThemHangHoa(hangHoa8);
+            ThemHangHoa(hangHoa9);
+            ThemHangHoa(hangHoa10);
+            ThemHangHoa(hangHoa11);
+            ThemHangHoa(hangHoa12);
+            ThemHangHoa(hangHoa13);
+            ThemHangHoa(hangHoa14);
+            ThemHangHoa(hangHoa15);
+            ThemHangHoa(hangHoa16);
+            ThemHangHoa(hangHoa17);
+            ThemHangHoa(hangHoa18);
+            ThemHangHoa(hangHoa19);
+            ThemHangHoa(hangHoa20);
+        } catch (Exception e) {
+            e.getCause();
+        }
     }
 }
