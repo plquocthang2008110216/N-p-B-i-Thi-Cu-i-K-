@@ -10,6 +10,7 @@ public class HangHoaTestDrive {
         Date ngayNhap = new Date();
         SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         ListHangHoa listHangHoa = new ListHangHoa();
+        listHangHoa.DuLieuMacDinh();
         do{
             System.out.println("|--------------------------MENU--------------------------|");
             System.out.println("|1 Them Hang Hoa                                         |");
@@ -34,7 +35,7 @@ public class HangHoaTestDrive {
                 int soLuong = sc.nextInt();
                 System.out.println("Nhập Giá:");
                 float gia = sc.nextFloat();
-                System.out.println("Nhập Loại Hàng [1: Thưc Pham; 2: Sanh Su; 3: Dien May]");
+                System.out.println("Nhập Loại Hàng [1: Thuc Pham; 2: Sanh Su; 3: Dien May]");
                 int l = sc.nextInt();
                 switch(l)
                 {
@@ -77,7 +78,7 @@ public class HangHoaTestDrive {
                         case 2:
                         listHangHoa.SapXepGiamDan();
                         break;
-                        default: System.out.println("Lựa Chọn Không Hợp Lệ");
+                        default: System.out.println("Lua chon khong dung");
                     }
                     break;
                 case 5:
@@ -87,7 +88,7 @@ public class HangHoaTestDrive {
                 listHangHoa.HienThiHangHoa();
                     break;
                 case 7:
-                System.out.println("Muốn Tìm Theo Loại [1]");
+                System.out.println("Muon tim theo loai [1]");
                 int lll = sc.nextInt();
                 switch(lll)
                 {
@@ -97,13 +98,13 @@ public class HangHoaTestDrive {
                     int l1 = sc.nextInt();
                     String ll = null;
                     switch(l1){
-                        case 1: ll = "Thực Phẩm";
+                        case 1: ll = "Thuc Pham";
                         break;
-                        case 2: ll = "Sành Sứ";
+                        case 2: ll = "Sanh Su";
                         break;
-                        case 3: ll = "Điện Máy";
+                        case 3: ll = "Dien May";
                         break;
-                        default: System.out.println("Loại Không Hợp Lệ!!");
+                        default: System.out.println("Loai khong hop le");
                         break;
                     }
                     listHangHoa.TimKiemTheoLoai(ll);

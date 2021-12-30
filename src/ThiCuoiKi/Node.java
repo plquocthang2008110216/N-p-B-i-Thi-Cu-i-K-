@@ -1,8 +1,8 @@
 package ThiCuoiKi;
 
 public class Node {
-    private HangHoa hangHoa;
-    private Node next;
+    public  HangHoa hangHoa;
+    public  Node next;
     public Node()
     {
 

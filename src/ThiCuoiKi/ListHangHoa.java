@@ -223,16 +223,6 @@ public class ListHangHoa {
             HangHoa hangHoa8 = new HangHoa(152, "my ly", "Thuc Pham", 600, date1);
             HangHoa hangHoa9 = new HangHoa(150, "chen", "Sanh Su", 150, date3);
             HangHoa hangHoa10 = new HangHoa(15500, "bep dien", "Dien May", 200, date5);
-            HangHoa hangHoa11 = new HangHoa(1005, "to", "Sanh Su", 105, date1);
-            HangHoa hangHoa12 = new HangHoa(1520, "ga", "Thuc Pham", 205, date3);
-            HangHoa hangHoa13 = new HangHoa(1780, "vit", "Thuc Pham", 705, date2);
-            HangHoa hangHoa14 = new HangHoa(1630, "lavabo", "Sanh Su", 905, date4);
-            HangHoa hangHoa15 = new HangHoa(1056, "thit heo", "Thuc Pham", 255, date1);
-            HangHoa hangHoa16 = new HangHoa(1589, "sua chua", "Thuc Pham", 605, date4);
-            HangHoa hangHoa17 = new HangHoa(1000, "laptop", "Dien May", 16555, date2);
-            HangHoa hangHoa18 = new HangHoa(1045, "muong", "Sanh Su", 755, date6);
-            HangHoa hangHoa19 = new HangHoa(1098, "may say", "Dien May", 200, date3);
-            HangHoa hangHoa20 = new HangHoa(1076, "may xay", "Dien May", 210000, date5);
             ThemHangHoa(hangHoa1);
             ThemHangHoa(hangHoa2);
             ThemHangHoa(hangHoa3);
@@ -243,16 +233,6 @@ public class ListHangHoa {
             ThemHangHoa(hangHoa8);
             ThemHangHoa(hangHoa9);
             ThemHangHoa(hangHoa10);
-            ThemHangHoa(hangHoa11);
-            ThemHangHoa(hangHoa12);
-            ThemHangHoa(hangHoa13);
-            ThemHangHoa(hangHoa14);
-            ThemHangHoa(hangHoa15);
-            ThemHangHoa(hangHoa16);
-            ThemHangHoa(hangHoa17);
-            ThemHangHoa(hangHoa18);
-            ThemHangHoa(hangHoa19);
-            ThemHangHoa(hangHoa20);
         } catch (Exception e) {
             e.getCause();
         }
